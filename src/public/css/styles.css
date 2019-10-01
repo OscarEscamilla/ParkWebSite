@@ -1,0 +1,19 @@
+body{
+    padding: 0%;
+    margin: 0%;
+}
+
+:root {
+    --bg-lava:#ff5722;
+    --bg-fuerte: #f57c00;
+    --bg-bajo: #ff9800;
+
+}
+
+.bg-lava{
+    background-color: #ff5722 !important;
+
+}
+.text-primary{
+    color: var(--bg-lava) !important;
+}
