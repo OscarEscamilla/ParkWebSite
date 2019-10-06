@@ -11,9 +11,50 @@ body{
 }
 
 .bg-lava{
-    background-color: #ff5722 !important;
-
+    background-color: var(--bg-lava) !important;
 }
-.text-primary{
+
+.bg-fuerte{
+    background-color: var(--bg-fuerte) !important;
+}
+
+.bg-bajo{
+    background-color: var(--bg-bajo) !important;
+}
+
+.text-lava{
     color: var(--bg-lava) !important;
+}
+.text-bajo{
+    color: var(--bg-bajo) !important;
+}
+.text-fuerte{
+    color: var(--bg-fuerte) !important;
+}
+
+#index-jumbutron{
+    background-image: url('../img/index/jumbotron.jpg');
+    width: 100%;
+    height: 450px;
+    border-radius: 0%;
+   
+}
+
+
+.icons-index{
+    font-size: 100px;
+}
+
+.btn-facebook{
+    background-color: #3b5998 !important;
+    color: white !important;
+}
+
+.img-size-circle{
+    width: 260px;
+    height: 260px;
+    border-radius: 125px;
+    
+  
+   
 }

@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
-const expresshbs = require('express-handlebars');
+const expresshbs = require('express-handlebars');//manejador de platillas 
+
+const morgan = require('morgan');//muestra peticiones por consola 
+
+
+
 const app = express();
-
-
 
 //configuraciones
 
@@ -24,8 +27,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 //midlewares
+app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+
+
+//variables globales
 
 //routes
 app.use(require('./routes/index.js'));
