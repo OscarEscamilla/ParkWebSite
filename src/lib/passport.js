@@ -10,7 +10,7 @@ passport.use('local.signin', new localStrategy({
     passReqToCallback: true
 }, async (req, username, password, done)=>{
     //const { username , password} = req.body;
-    const rows = await con.query('SELECT * FROM users WHERE username = ?', [username]);
+    const rows = await con.query('SELECT * FROM users WHERE correo = ?', [username]);
     console.log(rows[0]);
     if(rows.length > 0){
         const user = rows[0];

@@ -4,10 +4,16 @@ const expresshbs = require('express-handlebars');//manejador de platillas
 
 const morgan = require('morgan');//muestra peticiones por consola 
 
+const flash = require('connect-flash');
+const session = require('express-session');
+const mysql_store = require('express-mysql-session');
+const passport  = require('passport');
 
 
+const {database} = require('./keys.js');
 const app = express();
 
+require('./lib/passport.js');
 //configuraciones
 
 
@@ -27,15 +33,34 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 //midlewares
-app.use(morgan('dev'));
+//midlewares
+app.use(session({
+    secret: 'oscarsession',
+    resave: false,
+    saveUninitialized: false,
+    store: new mysql_store(database)
+}));
+app.use(flash());
+app.use(morgan('dev'));//muestra peticiones por conola
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-
+app.use(passport.initialize());
+app.use(passport.session());
 
 //variables globales
 
+
+app.use((req,res, next) => {
+    app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
+    app.locals.user = req.user;
+    //app.locals.isLoggedIn = req.isLoggedIn;
+    next();
+});
+
 //routes
 app.use(require('./routes/index.js'));
+app.use(require('./routes/authenticate.js'));
 
 
 //starting server

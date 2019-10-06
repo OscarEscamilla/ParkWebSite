@@ -1,5 +1,6 @@
 
 var controller = {}
+const model = require('../model/indexModel.js');
 
 
 controller.index = (req,res) =>{
