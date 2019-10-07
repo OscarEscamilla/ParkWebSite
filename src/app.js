@@ -60,7 +60,7 @@ app.use((req,res, next) => {
 
 //routes
 app.use(require('./routes/index.js'));
-app.use(require('./routes/authenticate.js'));
+app.use(require('./routes/login.js'));
 
 
 //starting server

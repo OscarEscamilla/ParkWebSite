@@ -27,7 +27,7 @@ passport.use('local.signin', new localStrategy({
             done(null, false, req.flash('message','Incorrect Password'));
         }
     }else{
-        return done(null, false, req.flash('message','El usuario no existe'));
+        return done(null, false, req.flash('message','El usuario no existe haga click en Sign up para registrarse'));
     }
 }));
 
